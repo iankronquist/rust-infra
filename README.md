@@ -7,7 +7,7 @@
 * [Homu Rust queue](http://buildbot.rust-lang.org/homu/queue/rust)
 * [Homu Cargo queue](http://buildbot.rust-lang.org/homu/queue/cargo)
 * [Travis dashboard](http://buildbot.rust-lang.org/travis/travis.html). We use Travis to test rust-lang crates that live outside of rust-lang/rust.
-* [Automation metabug](https://github.com/rust-lang/rust/issues/17356). The evergrowing list of things to do.
+* [Automation metabug](https://github.com/rust-lang/rust/issues/17356). The ever-growing list of things to do.
 * [rust-admin](https://github.com/brson/rust-admin). Old information, sometimes still worth looking at. This repo is private because it contains secrets.
 * [AWS console](https://console.aws.amazon.com/console/). Login page for AWS.
 * [play.rust-lang.org](https://play.rust-lang.org/). Our online Rust evaluator. It has a cross-site API so that it can be used by other projects, e.g. rust-by-example lets all examples be evaluated on play.rlo.
@@ -38,7 +38,7 @@ Most of our infrastructure is on AWS.
 
 The bastion is at the public IP 54.215.17.149, and called 'bastion' in EC2. All access goes through it. It's used to get to either the production or development master or slaves. It's in the `rust-bastion` security group, which only allows connections from specific IP's (currently only the MV office), so to access the automation from outside of MV the security group must be augmented.
 
-We use EC2, S3 and CloudFront. CloudFront is a content delivery network used soley for serving our s3 bucket over HTTPS via static.rust-lang.org.
+We use EC2, S3 and CloudFront. CloudFront is a content delivery network used solely for serving our s3 bucket over HTTPS via static.rust-lang.org.
 
 ## Accessing AWS machines
 
@@ -88,7 +88,7 @@ The build master is mostly operated by the 'rustbuild' user. To access, ssh from
 
 Don't bother trying to `buildbot restart master` - the slave shutdown takes a long time and the restart will time out. When shutting down with `buildbot stop master`, make sure you wait until buildbot actually exits (it takes a long time to wait on the EC2 slaves) before starting again.
 
-Buildbot listens *locally* on port 8010 via HTTP, and Homu on port 7942. A logal nginx instance is configured via `/etc/nginx/available-sites/default` to proxy them both to port 80.
+Buildbot listens *locally* on port 8010 via HTTP, and Homu on port 7942. A local nginx instance is configured via `/etc/nginx/available-sites/default` to proxy them both to port 80.
 
 The buildbot source is installed at ~/rust-buildbot, homu at ~/homu.
 
@@ -96,7 +96,7 @@ The build master contains an s3cmd configured so that - when necessary - people 
 
 The rustbuild user runs a number of cronjobs.
 
-The build master contains critical secrets, including the GPG subkey for signing releases and an s3 access token.
+The build master contains critical secrets, including the GPG sub-key for signing releases and an s3 access token.
 
 ## Important files
 
